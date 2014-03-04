@@ -6,14 +6,14 @@
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
         <script type="text/javascript">
-            google.load("visualization", "1", {packages:["corechart", 'table', 'treemap', 'gauge']});
+            google.load("visualization", "1", {packages:["geochart", "corechart", 'table', 'treemap', 'gauge']});
             google.load('jquery', '1.6.0');
         </script>
     </head>
     <body>
             
             <header>
-                <h1>GChartBundle Demo</h2>
+                <h1>GChartBundle Demo</h1>
             </header>
 
             {% for msg in app.session.flashbag.get('notice') %}

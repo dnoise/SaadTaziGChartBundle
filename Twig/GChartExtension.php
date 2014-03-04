@@ -31,6 +31,7 @@ class GChartExtension extends \Twig_Extension {
             'gchart_pie_chart'      => new \Twig_Function_Method($this, 'gchartPieChart', array('is_safe' => array('html'))),
             'gchart_candlestick_chart' => new \Twig_Function_Method($this, 'gchartCandleStickChart', array('is_safe' => array('html'))),
             'gchart_column_chart'   => new \Twig_Function_Method($this, 'gchartColumnChart', array('is_safe' => array('html'))),
+            'gchart_geo_chart'   => new \Twig_Function_Method($this, 'gchartGeoChart', array('is_safe' => array('html'))),
             'gchart_line_chart'     => new \Twig_Function_Method($this, 'gchartLineChart', array('is_safe' => array('html'))),
             'gchart_bar_chart'      => new \Twig_Function_Method($this, 'gchartBarChart', array('is_safe' => array('html'))),
             'gchart_area_chart'     => new \Twig_Function_Method($this, 'gchartAreaChart', array('is_safe' => array('html'))),
@@ -54,13 +55,21 @@ class GChartExtension extends \Twig_Extension {
     public function gchartPieChart($data, $id, $width, $height, $title = null, $config = array()) {
         return $this->renderGChart($data, $id, 'PieChart', $width, $height, $title, $config);
     }
+
     /**
      * gchart_column_chart definition
      */
     public function gchartColumnChart($data, $id, $width, $height, $title = null, $config = array()) {
         return $this->renderGChart($data, $id, 'ColumnChart', $width, $height, $title, $config);
     }
-    
+
+    /**
+     * gchart_column_chart definition
+     */
+    public function gchartGeoChart($data, $id, $width, $height, $title = null, $config = array()) {
+        return $this->renderGChart($data, $id, 'GeoChart', $width, $height, $title, $config);
+    }
+
     /**
      * gchart_candlestick_chart definition - needs 5 cols
      * @see http://code.google.com/apis/chart/interactive/docs/gallery/candlestickchart.html#Data_Format
