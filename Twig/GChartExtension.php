@@ -32,6 +32,7 @@ class GChartExtension extends \Twig_Extension {
             'gchart_candlestick_chart' => new \Twig_Function_Method($this, 'gchartCandleStickChart', array('is_safe' => array('html'))),
             'gchart_column_chart'   => new \Twig_Function_Method($this, 'gchartColumnChart', array('is_safe' => array('html'))),
             'gchart_geo_chart'   => new \Twig_Function_Method($this, 'gchartGeoChart', array('is_safe' => array('html'))),
+            'gchart_bubble_chart'   => new \Twig_Function_Method($this, 'gchartBubbleChart', array('is_safe' => array('html'))),
             'gchart_line_chart'     => new \Twig_Function_Method($this, 'gchartLineChart', array('is_safe' => array('html'))),
             'gchart_bar_chart'      => new \Twig_Function_Method($this, 'gchartBarChart', array('is_safe' => array('html'))),
             'gchart_area_chart'     => new \Twig_Function_Method($this, 'gchartAreaChart', array('is_safe' => array('html'))),
@@ -64,10 +65,17 @@ class GChartExtension extends \Twig_Extension {
     }
 
     /**
-     * gchart_column_chart definition
+     * gchart_geo_chart definition
      */
     public function gchartGeoChart($data, $id, $width, $height, $title = null, $config = array()) {
         return $this->renderGChart($data, $id, 'GeoChart', $width, $height, $title, $config);
+    }
+
+    /**
+     * gchart_bubble_chart definition
+     */
+    public function gchartBubbleChart($data, $id, $width, $height, $title = null, $config = array()) {
+        return $this->renderGChart($data, $id, 'BubbleChart', $width, $height, $title, $config);
     }
 
     /**
